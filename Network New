@@ -1,0 +1,20 @@
+#12
+import networkx as nx
+import matplotlib.pyplot as plt
+import numpy as np
+
+G = nx.erdos_renyi_graph(20, 0.3, seed=42)
+degrees = np.array([d for _, d in G.degree()])
+min_deg, q1, median, q3, max_deg = np.percentile(degrees, [0, 25, 50, 75, 100])
+
+nx.draw(G, with_labels=True, node_color='gray')
+plt.show()
+
+
+#11
+import networkx as nx
+import matplotlib.pyplot as plt
+G = nx.erdos_renyi_graph(20,0.2)
+degrees = [d for x , d in G.degree()]
+plt.hist(degrees , bins=range(min(degrees),max(degrees)+2 ),color='red',edgecolor='black')
+plt.show()
